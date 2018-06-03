@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<!-- Thymeleaf为我们提供的Spring Security的标签支持 -->
+<head>
+<meta content="text/html;charset=UTF-8" />
+<title sec:authentication="name"></title>
+<!-- 获得当前用户的用户名 -->
+</head>
+<body>
+	登录用户:<span sec:authentication="name"></span>
+	<br></br>
+	登录角色:<span sec:authentication="principal.authorities"></span>
+	<ul sec:authorize="isAnonymous()" >
+		<li><a th:href="@{/login}">Login </a></li>
+		<li><a th:href="@{/register}">Sign Up</a></li>
+	</ul>
+	<ul sec:authorize="isAuthenticated()"
+		class="nav navbar-nav navbar-right">
+		<li><a th:href="@{/admin/list}">list</a></li>
+		<li><a th:href="@{logout}">Log out</a></li>
+		<li><a href=" " th:href="logout"> 退出</a></li>
+	</ul>
+</body>
+</html>

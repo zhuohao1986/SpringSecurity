@@ -1,0 +1,7 @@
+#security:
+#  user:
+#    name: yiqun
+#    password: 123456
+#
+#  basic:
+#    enabled: false
