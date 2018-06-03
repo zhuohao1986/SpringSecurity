@@ -1,6 +1,8 @@
 package com.example.conf;
 
-
+/**
+ * spring security配置
+ */
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -21,9 +23,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-				.antMatchers("/signup", "/about").permitAll() // #4
-				.antMatchers("/admin/**").hasRole("ADMIN") // #6设置只有ADMIN 权限的人才能访问指定URL
-				.anyRequest().authenticated() // #7 //除了指定URL  其他都需要验证
+				.antMatchers("/signup", "/about").permitAll()
+				.antMatchers("/admin/**").hasRole("ADMIN") // 设置只有ADMIN 权限的人才能访问指定URL
+				.anyRequest().authenticated() //除了指定URL  其他都需要验证
 				.and()
 			.formLogin()
 				.loginPage("/login") 

@@ -5,7 +5,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
+/**
+ * spring security控制器
+ * @author Administrator
+ *
+ */
 @Controller
 public class DemoController {
 	@GetMapping("/login")
